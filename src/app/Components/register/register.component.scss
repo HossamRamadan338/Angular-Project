@@ -1,0 +1,39 @@
+.form-check-input {
+    position: absolute;
+    margin-top: 0.4rem;
+    margin-left: 0rem;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 0.25rem;
+}
+.ml-4, .mx-4 {
+    margin-left: 2rem!important;
+}
+.mb-4, .my-4 {
+    margin-bottom: 0.8rem!important;
+}
+.btn-success {
+    color: #fff;
+    background-color: darkcyan;
+    border-color: darkcyan;
+}
+.fa, .fas {
+    font-weight: 900;
+    padding-top: 10px;
+    margin-right: 5px;
+    color: darkcyan;
+}
+.p-3 {
+    padding: 0rem!important;
+}
+.mb-5, .my-5 {
+    margin-bottom: 1rem!important;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-left: 32px;
+}

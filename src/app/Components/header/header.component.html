@@ -1,0 +1,60 @@
+<div class="header2 bg-success-gradiant position-sticky sticky-top">
+  <div class="">
+      <!-- Header 1 code -->
+      <nav class="navbar navbar-expand-lg h2-nav"> <a class="navbar-brand" href="#">Shopping</a> 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header2" aria-controls="header2" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="icon-menu"></span> 
+        </button>
+          <div class="collapse navbar-collapse hover-dropdown" id="header2">
+              <ul class="navbar-nav">
+                  <li class="nav-item active"><a class="nav-link" routerLink="home">Home</a></li>
+                  <li class="nav-item active"><a class="nav-link" routerLink="product">All Products</a></li>
+                  <li class="nav-item active"><a class="nav-link" routerLink="men">Men</a></li>
+                  <li class="nav-item active"><a class="nav-link" routerLink="women">Women</a></li>
+                  <li class="nav-item active"><a class="nav-link" routerLink="accessory">Accessory</a></li>
+                  <li class="nav-item active"><a class="nav-link" routerLink="electronics">electronics</a></li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" routerLink="cart">
+                          <i class="fa fa-cart-plus mr-2"></i>
+                          <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+                    </a>
+                  </li>
+                  <li class="nav-item" *ngIf="!loggedin()">
+                    <a class="btn rounded-pill btn-dark py-2 px-4" routerLink="register">Sign up</a>
+                  </li>
+                  <li class="nav-item active"*ngIf="!loggedin()">
+                    <a class="nav-link" routerLink="login">Login</a>
+                  </li>
+                  <li class="nav-item active"*ngIf="loggedin()">
+                    <a class="nav-link" >{{obj.name}}</a>
+                  </li>
+                  <li class="nav-item active" *ngIf="loggedin()">
+                    <a class="nav-link" routerLink="login"(click)="onLogout()">Logout</a>
+                  </li> 
+              </ul>
+              <!--<ul *ngIf="!loggedin();then login;else logout">
+                
+              </ul>
+                  <ng-template #login>
+                    <li class="nav-item" >
+                      <a class="btn rounded-pill btn-dark py-2 px-4" routerLink="register">Sign up</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" routerLink="login">Login</a>
+                    </li>
+                  </ng-template>
+                  <ng-template #logout>
+                    <li class="nav-item active"*ngIf="loggedin()">
+                      <a class="nav-link" >{{obj.email}}</a>
+                    </li>
+                    <li class="nav-item active" *ngIf="loggedin()">
+                      <a class="nav-link" routerLink="login"(click)="onLogout()">Logout</a>
+                    </li>
+                  </ng-template> -->
+
+          </div>
+      </nav> <!-- End Header 1 code -->
+  </div>
+</div>

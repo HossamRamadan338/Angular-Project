@@ -1,0 +1,21 @@
+.card{
+    height: 70vh;
+    margin: 20px;
+    padding: 20px;
+}
+.card img{
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    height: 162px;
+    width: 250px;
+    margin: 20px 0px;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}

@@ -1,0 +1,144 @@
+<section class="vh-70 d-flex justify-content-center" style="background-color: #eee; ">
+    <div class="container h-100  m-4">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 shadow-sm p-3 mb-5 bg-white rounded">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+  
+                  <form class="mx-1 mx-md-4" #userForm="ngForm" novalidate (ngSubmit)="setLocalStorage()">
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill ">
+                            <label class="form-label" for="name">Your Name</label>
+                           <div class="d-flex flex-col">
+                                <i class="fas fa-user fa-lg me-3 fa-fw "></i>
+                                <input 
+                                    type="text" id="name" class="form-control" 
+                                    [class.is-invalid]="name.invalid&&name.touched" 
+                                    [(ngModel)]="userModel.name" name="name" 
+                                    pattern="^[A-Za-z][A-Za-z0-9]{2,30}$"
+                                    #name="ngModel" id="name"  
+                                    placeholder="Enter neme" 
+                                    required
+                                />  
+                           </div>
+                            <div  class="ml-4" *ngIf="name.errors&&name.touched">
+                                <small class="form-text text-danger" *ngIf="name.errors['pattern']">Name must be most of 3 charchter</small>
+                                <small class="form-text text-danger" *ngIf="name.errors['required']">Name is required</small>
+                            </div>
+                            </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill ">
+                            <label class="form-label" for="form3Example3c">Your Email</label>
+                            <div class="d-flex flex-col">
+                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    [class.is-invalid]="email.invalid&&email.touched" 
+                                    pattern="^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$" 
+                                    [(ngModel)]="userModel.email"  
+                                    name="email" 
+                                    #email="ngModel" 
+                                    id="inputEmail1" 
+                                    aria-describedby="emailHelp" 
+                                    placeholder="Enter email"
+                                    required
+                                />
+                            </div>
+                            <div class="ml-4" *ngIf="email.errors&&email.touched">
+                                <small class="form-text text-danger" *ngIf="email.errors['pattern']">please sure email in the format (aaa@bb.com)</small>
+                                <small class="form-text text-danger" *ngIf="email.errors['required']">Email is required</small>
+                            </div>
+                            
+                        </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill ">
+                            <label class="form-label" for="password">Password</label>
+                            <div class="d-flex flex-col">
+                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                <input 
+                                    type="password" 
+                                    class="form-control"
+                                    [class.is-invalid]="password.invalid&&password.touched" 
+                                    [(ngModel)]="userModel.password"
+                                    name="password"
+                                    #password="ngModel" 
+                                    id="inputPassword" 
+                                    placeholder="Password" 
+                                    required
+                                />
+                            </div>
+                            <div class="ml-4"  *ngIf="password.errors&&password.touched">
+                                <small class="form-text text-danger" *ngIf="password.errors['required']">Password is required</small>
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill">
+                            <label class="form-label" for="confirmPassword">Repeat your password</label>
+                            <div class="d-flex flex-col">
+                                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                <input 
+                                    type="password" 
+                                    class="form-control"
+                                    [class.is-invalid]="confirmPassword.invalid&&confirmPassword.touched" 
+                                    [(ngModel)]="userModel.confirmPassword"
+                                    name="confirmPassword"
+                                    #confirmPassword="ngModel" 
+                                    id="confirmPassword" 
+                                    placeholder="confirm Password" 
+                                    required
+                                    pattern="{{userModel.password}}"
+                                />
+                            </div>
+                            <div  class="ml-4" *ngIf="confirmPassword.errors&&confirmPassword.touched" >
+                                <small class="form-text text-danger" *ngIf="confirmPassword.errors['required']">Password is required</small>
+                                <small class="form-text text-danger" *ngIf="confirmPassword.errors['pattern']">Password and confirm Password does not match</small>
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="form-check d-flex-row justify-content-center mb-4">
+                            <input 
+                                class="form-check-input" 
+                                [(ngModel)]="userModel.checkAgree"
+                                name="checkAgree"
+                                type="checkbox"
+                                #checkAgree="ngModel" 
+                                value="" 
+                                id="checkAgree"
+                                required
+                            >
+                            <label class="form-check-label" for="checkAgree">
+                                I agree all statements 
+                            </label>
+                        <div  class="ml-4" *ngIf="checkAgree.errors&&checkAgree.touched">
+                            <small class="form-text text-danger" *ngIf="checkAgree.errors['required']">Please check </small>
+                        </div>
+                    </div>
+  
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button type="submit" class="btn btn-success btn-lg"[disabled]="userForm.form.invalid">Register</button>
+                    </div>
+                  </form>
+  
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
